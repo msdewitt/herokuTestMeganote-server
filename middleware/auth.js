@@ -9,6 +9,7 @@ module.exports = (req, res, next) => {
   jwt.verify(token, process.env.JWT_SECRET, (err, decodedPayload) => {
     if (err) {
       // invalid token
+      // console.log('Error in the JWT_SECRET verify function!');
       res.status(401).json({ message: 'Authentication required.' });
       return;
     }
